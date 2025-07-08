@@ -20,7 +20,7 @@ ALGOS=(
 )
 
 for algo in ${ALGOS[@]}; do
-for n in $(seq 3 8); do
+for n in $(seq 3 9); do
 for msg in ${MSGS[@]}; do
     echo -n "running $algo-$n-$msg... "
     $MPIEXEC -n $n \
