@@ -9,8 +9,8 @@ OUT_DIR=$PWD/output
 rm -rf $OUT_DIR
 mkdir -p $OUT_DIR
 
-#     1 256 1kib 16kib 1mib    128mib
-MSGS=(1 256 1024 16384 1048576 134217728)
+#     1 256 1kib 16kib 64kib 256kib 1mib    32mib    128mib
+MSGS=(1 256 1024 16384 65536 262144 1048576 33554432 134217728)
 
 ALGOS=(
     "ring"
@@ -20,7 +20,7 @@ ALGOS=(
 )
 
 for algo in ${ALGOS[@]}; do
-for n in $(seq 3 9); do
+for n in $(seq 2 16); do
 for msg in ${MSGS[@]}; do
     echo -n "running $algo-$n-$msg... "
     $MPIEXEC -n $n \
